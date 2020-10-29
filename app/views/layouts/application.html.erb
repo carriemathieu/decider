@@ -10,6 +10,10 @@
   </head>
 
   <body>
+    <% if flash[:message] %>
+      <%= flash[:message] %>
+    <% end %>
+
     <div id="navbar">
       <ul>
         <li><link_to "Home", root_path></li>

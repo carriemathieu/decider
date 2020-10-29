@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   # existing user login route
   get '/signin' => "sessions#new"
-  post '/signin' => "sessionss#create"
+  post '/signin' => "sessions#create"
 
   # logout route
   delete '/logout' => "sessions#destroy"
