@@ -15,10 +15,10 @@
     <% end %>
 
     <div id="navbar">
-      <ul>
-        <li><link_to "Home", root_path></li>
-      </ul>
-    <div>
+        <%= link_to "Home", root_path %>
+        <%= link_to "Sign In", signin_path %>
+        <%= link_to "Logout", logout_path, method: "delete" %>
+    </div>
     <%= yield %>
   </body>
 </html>
