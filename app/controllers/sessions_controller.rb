@@ -4,9 +4,9 @@ class SessionsController < ApplicationController
     def new
     end
 
-    # assigns session or redirects
+    # assigns/creates new session or redirects
     def create
-
+        
     end
 
     def destroy
