@@ -1,1 +1,5 @@
-show.html
+<h3> Welcome <%= @user.username %> </h3>
+
+<%= form_tag("/logout", method: 'delete') do %>
+    <%= submit_tag "Logout"%>
+<% end %>
