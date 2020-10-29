@@ -15,9 +15,14 @@
     <% end %>
 
     <div id="navbar">
-        <%= link_to "Home", root_path %>
-        <%= link_to "Sign In", signin_path %>
+        <% if logged_in? %>
+        <%= link_to "Add a task", new_task_path %>
+        <%= link_to "All tasks", tasks_path %>
         <%= link_to "Logout", logout_path, method: "delete" %>
+        <% else %>
+        <%= link_to "Sign In", signin_path %>
+        <%= link_to "Sign Up", signup_path %>
+      <% end %>
     </div>
     <%= yield %>
   </body>
