@@ -4,9 +4,10 @@ class TasksController < ApplicationController
     end
 
     def create
-        @task = Task.new(task_params)
-        if @post.save
-            redirect_to @post
+        binding.pry
+        @task = current_user.tasks.build(task_params)
+        if @task.save
+            redirect_to tasks_path
         else
             render :new
         end
