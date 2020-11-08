@@ -1,1 +1,7 @@
-all posts index.html
+<h1>All tasks</h1>
+<hr>
+
+<%= @tasks.each do |task| %>
+    <%= task.content %>
+    <%= task.user.username %>
+<% end %>
