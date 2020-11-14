@@ -14,6 +14,8 @@
       <%= flash[:message] %>
     <% end %>
 
+    <%= @error %>
+
     <div id="navbar">
         <% if logged_in? %>
         <%= link_to "Add a task", new_task_path %>

@@ -1,7 +1,10 @@
 <h1>All tasks</h1>
 <hr>
 
-<%= @tasks.each do |task| %>
+<% @tasks.each do |task| %>
     <%= task.content %>
     <%= task.user.username %>
 <% end %>
+
+<!--- @ tasks.suggestions.users.each do |suggestion|
+-->
