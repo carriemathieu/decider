@@ -11,7 +11,7 @@ class FriendshipsController < ApplicationController
     end
   
     def destroy
-        @friendship = current_user.friendships.find(params[:id])
+        @friendship = current_user.friendships.find(params[:id]) #only current user's friendships
         @friendship.destroy
         flash[:notice] = "Removed friendship."
         redirect_to current_user

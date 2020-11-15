@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   # logout route
   delete '/logout' => "sessions#destroy"
 
+  resources :friendships
+  
   resources :suggestions
   resources :tasks do
     resources :suggestions, only: [:new, :create, :index]

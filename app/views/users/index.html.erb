@@ -1,1 +1,8 @@
-<%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+User List
+
+<% for user in @users %>
+    <p>
+      <strong><%=h user.username %></strong>
+      <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+    </p>
+<% end %>
