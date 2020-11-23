@@ -1,10 +1,19 @@
 <h1>All tasks</h1>
 <hr>
 
-<% @tasks.each do |task| %>
-    <%= task.content %>
-    <%= task.user.username %>
-<% end %>
-
+<table>
+    <tr>
+        <th> Task: </th>
+        <th> Created by: </th>
+        <th> Link to task: </th>
+    </tr>
+    <% @tasks.each do |task| %>
+        <tr>
+            <td> <%= task.content %> </td>
+            <td> <%= task.user.username %> </td>
+            <td> <%= link_to "See This Task", task_path(task)%> </td>
+        </tr>
+    <% end %>
+</table>
 <!--- @ tasks.suggestions.users.each do |suggestion|
 -->
