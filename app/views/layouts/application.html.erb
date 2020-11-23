@@ -18,6 +18,7 @@
 
     <div id="navbar">
         <% if logged_in? %>
+        <%= link_to "Home Page", user_path(current_user) %>
         <%= link_to "Add a task", new_task_path %>
         <%= link_to "All tasks", tasks_path %>
         <%= link_to "Logout", logout_path, method: "delete" %>
