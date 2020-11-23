@@ -1,1 +1,11 @@
-tasks.show
+<h1> <%= @task.content %> </h1>
+<h3> <%= @task.user.username %> </h3>
+<br>
+<strong> Suggestions: </strong>
+<br>
+<br>
+<%= link_to "Randomize suggestions", task_suggestions_path(@task) %> (if owner of post)
+<br>
+<%= link_to "Add a new suggestion", new_task_suggestion_path(@task) %> (if friends w/ task.user)
+<br>
+Delete Task (if current user)
