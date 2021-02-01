@@ -1,1 +1,19 @@
-suggestion new.html
+<% if @task %>
+<h1> New comment for "<%= @task.content %>" </h1>
+<% else %>
+<h1> Add suggestion </h1>
+<% end %>
+
+<%= form_for(@task) do |f| %>
+
+    <% if !@task %>
+        <%= f.label :task %>
+        <%= f.collection_select :task_id, Task.all, :id, :content %>
+    <% end %>
+
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+
+    <%= f.submit %>
+
+<% end %>
