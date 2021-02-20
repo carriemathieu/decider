@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 2020_11_15_041121) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
   end
 
 end
