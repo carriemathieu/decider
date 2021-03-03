@@ -18,6 +18,22 @@ class SuggestionsController < ApplicationController
         end
     end
 
+    def create
+        @suggestion = current_user.suggestions.build(suggestion_params)
+        if @suggestion.save
+            redirect_to suggestions_path
+        else
+            render :new
+        end
+    end
+
+    def show
+    end
+    private
+    
+    def suggestion_params
+        params.require(:suggestion).permit(:content, :task_id)
+    end
     # add all suggestions to an array
     # [array].sample OR [array].shuffle.first
 end

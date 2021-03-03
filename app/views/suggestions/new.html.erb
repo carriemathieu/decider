@@ -1,14 +1,17 @@
-<% if @task %>
-<h1> New comment for "<%= @task.content %>" </h1>
+<% if @suggestion.task %>
+<h1> New suggestion for "<%= @suggestion.task.content %>" </h1>
 <% else %>
 <h1> Add suggestion </h1>
 <% end %>
 
-<%= form_for(@task) do |f| %>
 
-    <% if !@task %>
+<%= form_for([@suggestion.task, @suggestion]) do |f| %>
+
+    <% if !@suggestion.task %> <% # if not nested %>
         <%= f.label :task %>
         <%= f.collection_select :task_id, Task.all, :id, :content %>
+    <% else %> <%# if not choosing from collection_select %>
+        <%= f.hidden_field :task_id %> <%# sends info to controller %>
     <% end %>
 
     <%= f.label :content %>

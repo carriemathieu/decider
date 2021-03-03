@@ -14,8 +14,6 @@
       <%= flash[:message] %>
     <% end %>
 
-    <%= @error %>
-
     <div id="navbar">
         <% if logged_in? %>
         <%= link_to "Home Page", user_path(current_user) %>
