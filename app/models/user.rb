@@ -1,6 +1,6 @@
 class User < ApplicationRecord
     has_secure_password
-    validates :username, uniqueness: true
+    validates :email, uniqueness: true
     has_many :tasks
     has_many :tasks, through: :suggestions
     has_many :friendships
@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
     #def self.from_omniauth(auth)
      #   where(email: auth.info.email).first_or_initialize do |user|
-      #      user.username = auth.info.email
+      #      user.email = auth.info.email
       #      user.password = SecureRandom.hex
       #  end
     # end

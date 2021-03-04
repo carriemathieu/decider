@@ -1,5 +1,5 @@
 <% @suggestions.each do |suggestion| %>
-    <%= suggestion.user.username %> added the suggestion
+    <%= suggestion.user.firstname %> added the suggestion
     "<%= suggestion.content %>" to the task
     "<%= suggestion.task.content %>"
 <% end %>

@@ -2,7 +2,8 @@ User List
 
 <% for user in @users %>
     <p>
-      <strong><%=h user.username %></strong>
+      <%= user.firstname %>
+      <%= user.lastname %>
       <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
     </p>
 <% end %>

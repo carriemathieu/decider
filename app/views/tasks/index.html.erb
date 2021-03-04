@@ -10,7 +10,7 @@
     <% @tasks.each do |task| %>
         <tr>
             <td> <%= task.content %> </td>
-            <td> <%= task.user.username %> </td>
+            <td> <%= task.user.firstname %> </td>
             <td> <%= link_to "See This Task", task_path(task)%> </td>
         </tr>
     <% end %>

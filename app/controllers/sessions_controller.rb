@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
     # assigns/creates new session or redirects
     def create
-        user = User.find_by(username: params[:username])
+        user = User.find_by(email: params[:email])
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
             redirect_to user_path(user)
@@ -23,8 +23,8 @@ class SessionsController < ApplicationController
     end
 
     def omniauth # creates a user via Google auth hash
-        @user = User.find_or_create_by(username: auth["info"]["email"]) do |user|
-            user.name = auth["info"]["first_name"]
+        @user = User.find_or_create_by(email: auth["info"]["email"]) do |user|
+            user.firstname = auth["info"]["first_name"]
             user.password = SecureRandom.hex
         end
 
