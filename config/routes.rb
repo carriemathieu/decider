@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get '/signin' => "sessions#new"
   post '/signin' => "sessions#create"
 
+  # callback route for google oauth
+  get '/auth/:provider/callback' => 'sessions#omniauth'
+
   # logout route
   delete '/logout' => "sessions#destroy"
 
