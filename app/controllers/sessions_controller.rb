@@ -22,11 +22,18 @@ class SessionsController < ApplicationController
         redirect_to root_path
     end
 
-    def omniauth # create a user via Google
-        @user = User.from_omniauth(auth)
-        @user.save
-        session[:user_id] = @user.id
-        redirect_to home_path
+    def omniauth # creates a user via Google auth hash
+        @user = User.find_or_create_by(username: auth["info"]["email"]) do |user|
+            user.name = auth["info"]["first_name"]
+            user.password = SecureRandom.hex
+        end
+
+        if @user.save
+            session[:user_id] = @user.id
+            redirect_to user_path(user)
+        else
+            redirect_to '/'
+        end  
     end
 
     private
