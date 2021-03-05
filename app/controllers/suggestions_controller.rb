@@ -19,6 +19,7 @@ class SuggestionsController < ApplicationController
     end
 
     def create
+        #binding.pry
         @suggestion = current_user.suggestions.build(suggestion_params)
         if @suggestion.save
             redirect_to suggestions_path

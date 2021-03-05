@@ -25,12 +25,13 @@ class SessionsController < ApplicationController
     def omniauth # creates a user via Google auth hash
         @user = User.find_or_create_by(email: auth["info"]["email"]) do |user|
             user.firstname = auth["info"]["first_name"]
+            user.lastname = auth["info"]["lastname"]
             user.password = SecureRandom.hex
         end
 
         if @user.save
             session[:user_id] = @user.id
-            redirect_to user_path(user)
+            redirect_to user_path(@user)
         else
             redirect_to '/'
         end  

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     def index
-        @users = User.all
+        @users = User.alpha
     end
     # create an account page
     def new

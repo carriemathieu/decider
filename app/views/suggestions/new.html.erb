@@ -4,10 +4,22 @@
 <h1> Add suggestion </h1>
 <% end %>
 
+<% if @suggestion.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@suggestion.errors.count, "error") %> prohibited this suggestion from being saved:</h2>
+
+    <ul>
+        <% @suggestion.errors.full_messages.each do |message| %>
+            <%= message %>
+            <br>
+        <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <%= form_for([@suggestion.task, @suggestion]) do |f| %>
 
-    <% if !@suggestion.task %> <% # if not nested %>
+    <% if !@suggestion.task %> <%# if not nested %>
         <%= f.label :task %>
         <%= f.collection_select :task_id, Task.all, :id, :content %>
     <% else %> <%# if not choosing from collection_select %>
