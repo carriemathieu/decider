@@ -4,18 +4,7 @@
 <h1> Add suggestion </h1>
 <% end %>
 
-<% if @suggestion.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@suggestion.errors.count, "error") %> prohibited this suggestion from being saved:</h2>
-
-    <ul>
-        <% @suggestion.errors.full_messages.each do |message| %>
-            <%= message %>
-            <br>
-        <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render partial: "layouts/errors", locals: {object: @suggestion} %>
 
 <%= form_for([@suggestion.task, @suggestion]) do |f| %>
 
