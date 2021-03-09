@@ -57,8 +57,9 @@ class TasksController < ApplicationController
 
     def set_task
         @task = Task.find_by(id: params[:id])
-        if !@task 
+        if !@task || @task == nil
             flash[:alert] = "Task was not found."
+            redirect_to tasks_path
         end
     end
 

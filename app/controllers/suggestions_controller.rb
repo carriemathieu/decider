@@ -32,6 +32,7 @@ class SuggestionsController < ApplicationController
     end
 
     def show
+
     end
 
     def edit 
@@ -61,13 +62,14 @@ class SuggestionsController < ApplicationController
     def set_suggestion
         @suggestion = Suggestion.find_by(id: params[:id])
         if !@suggestion 
-            flash.alert = "Task was not found."
+            flash.alert = "Suggestion was not found."
+            redirect_to suggestions_path
         end
     end
 
     def redirect_if_not_suggestion_author
-        if @suggestion.user != current_user
-            flash[:alert] = "You are not authorized to make changes to this suggestion."
+        if @suggestion && @suggestion.user != current_user
+            flash.alert = "You are not authorized to make changes to this suggestion."
             redirect_to task_path
         end
     end
