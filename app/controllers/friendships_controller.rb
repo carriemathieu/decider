@@ -1,4 +1,6 @@
 class FriendshipsController < ApplicationController
+    before_action :redirect_if_not_logged_in
+    
     def create
         @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
         if @friendship.save

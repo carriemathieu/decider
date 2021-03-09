@@ -1,6 +1,6 @@
 class SuggestionsController < ApplicationController
     before_action :redirect_if_not_logged_in
-    before_action :set_comment, only: [:show, :edit, :update]
+    before_action :set_suggestion, only: [:show, :edit, :update]
     before_action :redirect_if_not_suggestion_author, only: [:edit, :update]
 
     def index
@@ -37,7 +37,6 @@ class SuggestionsController < ApplicationController
     end
 
     def update
-        set_suggestion
         if @suggestion.update(suggestion_params)
             redirect_to suggestion_path(@suggestion)
         else
@@ -61,6 +60,7 @@ class SuggestionsController < ApplicationController
     def redirect_if_not_suggestion_author
         redirect_to suggestions_path if @suggestion.user != current_user
     end
+
     # add all suggestions to an array
     # [array].sample OR [array].shuffle.first
 end
