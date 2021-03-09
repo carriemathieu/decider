@@ -1,0 +1,12 @@
+<h1> Edit Task </h1>
+
+<%= render partial: "layouts/errors", locals: {object: @task} %>
+
+<%= form_for(@task) do |f| %>
+
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+
+    <%= f.submit %>
+
+<% end %>
