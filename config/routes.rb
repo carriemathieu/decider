@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   # logout route
   delete '/logout' => "sessions#destroy"
 
+  delete '/task/:id' => "tasks#destroy"
+
+  delete '/suggestions/:id' => "suggestions#destroy"
+
   resources :friendships
   
   resources :suggestions

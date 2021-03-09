@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
     before_action :redirect_if_not_logged_in
-    before_action :set_task, only: [:show, :edit, :update]
-    before_action :redirect_if_not_task_author, only: [:edit, :update]
+    before_action :set_task, only: [:show, :edit, :update, :destroy]
+    before_action :redirect_if_not_task_author, only: [:edit, :update, :destroy]
     
     def index
         if params[:user_id] # checks if post ID & id exists are true
@@ -41,6 +41,9 @@ class TasksController < ApplicationController
     end
 
     def destroy
+        @task.destroy
+        flash[:notice] = "Artist deleted."
+        redirect_to tasks_path
     end
 
     private
