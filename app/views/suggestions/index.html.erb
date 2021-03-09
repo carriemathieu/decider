@@ -4,10 +4,5 @@
     <%= suggestion.user.firstname %> added the suggestion
     "<%= suggestion.content %>" to the task
     "<%= suggestion.task.content %>"
-    <% if suggestion.user = current_user %>
-        <%= link_to "edit", edit_suggestion_path(suggestion) %>
-        <%= link_to "delete", suggestion_path(suggestion), method: :delete %>
-        <br>
-    <% end %>
 <% end %>
 <br>

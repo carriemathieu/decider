@@ -46,6 +46,12 @@ class SuggestionsController < ApplicationController
         end
     end
 
+    def destroy
+        @suggestion.destroy
+        flash[:notice] = "Suggestion deleted."
+        redirect_to suggestions_path
+    end
+
     private
     
     def suggestion_params
