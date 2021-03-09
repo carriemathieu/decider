@@ -2,11 +2,5 @@
 
 <%= render partial: "layouts/errors", locals: {object: @task} %>
 
-<%= form_for(@task) do |f| %>
+<%= render partial: "tasks" %>
 
-    <%= f.label :content %>
-    <%= f.text_area :content %>
-
-    <%= f.submit %>
-
-<% end %>
