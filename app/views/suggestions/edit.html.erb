@@ -1,0 +1,12 @@
+<h1> Edit Suggestion </h1>
+
+<%= render partial: "layouts/errors", locals: {object: @suggestion} %>
+
+<%= form_for(@suggestion) do |f| %>
+
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+
+    <%= f.submit %>
+
+<% end %>

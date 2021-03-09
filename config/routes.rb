@@ -25,9 +25,9 @@ Rails.application.routes.draw do
   
   resources :suggestions
   resources :tasks do
-    resources :suggestions, only: [:new, :create, :index]
+    resources :suggestions, only: [:new, :create, :index, :edit]
   end
   resources :users do
-    resources :tasks, only: [:new, :create, :index]
+    resources :tasks, only: [:new, :create, :index, :edit]
   end
 end

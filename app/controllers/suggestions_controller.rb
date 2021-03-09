@@ -1,7 +1,7 @@
 class SuggestionsController < ApplicationController
     before_action :redirect_if_not_logged_in
-    before_action :set_suggestion, only: [:show, :edit, :update]
-    before_action :redirect_if_not_suggestion_author, only: [:edit, :update]
+    before_action :set_suggestion, only: [:show, :edit, :update, :destroy]
+    before_action :redirect_if_not_suggestion_author, only: [:edit, :update, :destroy]
 
     def index
         if params[:task_id] && @task = Task.find_by_id(params[:task_id]) # checks if post ID & id exists are true

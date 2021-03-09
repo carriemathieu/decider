@@ -10,6 +10,11 @@
     <% @task.suggestions.each do |suggestion| %>
         <%= suggestion.user.firstname %> suggests 
         "<%= suggestion.content %>"
+        
+        <% if suggestion.user == current_user %>
+            <%= link_to "edit", edit_suggestion_path(suggestion) %>
+            <%= link_to "delete", suggestion_path(suggestion), method: :delete %>
+        <% end %>
         <br>
     <% end %>
 <% end %> 
