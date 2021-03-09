@@ -10,21 +10,22 @@
   </head>
 
   <body>
-    <% if flash[:message] %>
-      <%= flash[:message] %>
-    <% end %>
+    
 
     <div id="navbar">
         <% if logged_in? %>
         <%= link_to "Home Page", user_path(current_user) %>
         <%= link_to "Add a task", new_task_path %>
         <%= link_to "All tasks", tasks_path %>
+        <%= link_to "Your tasks", tasks_path(current_user) %>
+  
         <%= link_to "Logout", logout_path, method: "delete" %>
         <% else %>
         <%= link_to "Sign In", signin_path %>
         <%= link_to "Sign Up", signup_path %>
       <% end %>
     </div>
+
     <%= yield %>
   </body>
 </html>

@@ -3,6 +3,12 @@
 <br>
 <strong> Suggestions: </strong>
 <br>
+<% @task.suggestions.each do |suggestion| %>
+     <%= suggestion.user.firstname %> suggests 
+     "<%= suggestion.content %>"
+     <br>
+<% end %>
+<br>
 <br>
 <%= link_to "Randomize suggestions", task_suggestions_path(@task) %> (if owner of post)
 <br>

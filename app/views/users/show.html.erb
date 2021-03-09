@@ -1,20 +1,14 @@
-<h3> Welcome <%= @user.firstname %> </h3>
+<h3> Welcome <%= @user.firstname%> </h3>
 
-<h2>Friends</h2>
-<ul>
-  <% for friendship in @user.friendships %>
-    <li>
-      <%=h friendship.friend.firstname %>
-      (<%= link_to "remove", friendship, :method => :delete %>)
-    </li>
-  <% end %>
-</ul>
+<br>
+<br> 
 
-<p><%= link_to "Find Friends", users_path %></p>
+<% if @user.tasks.empty? %>
+    No tasks yet. Create a new task <%= link_to "here", new_task_path %>
+<% else %>
+    Your tasks: 
+    <% @user.tasks.each do |task| %>
+        <%= task.content %>
+    <% end %>
+<% end %>
 
-<h2>Friended by Users</h2>
-<ul>
-  <% for user in @user.inverse_friends %>
-    <li><%=h user.firstname %></li>
-  <% end %>
-</ul>

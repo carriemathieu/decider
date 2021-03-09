@@ -16,4 +16,7 @@ class FriendshipsController < ApplicationController
         flash[:notice] = "Removed friendship."
         redirect_to current_user
     end
+
+    def index
+    end
 end
