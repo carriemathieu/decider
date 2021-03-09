@@ -19,6 +19,7 @@ class TasksController < ApplicationController
     def create
         @task = current_user.tasks.build(task_params)
         if @task.save
+            flash.notice = "Successfully created new task."
             redirect_to tasks_path
         else
             render :new
@@ -34,6 +35,7 @@ class TasksController < ApplicationController
 
     def update
         if @task.update(task_params)
+            flash.notice = "Successfully updated new task."
             redirect_to task_path(@task)
         else
             render :edit
@@ -42,7 +44,7 @@ class TasksController < ApplicationController
 
     def destroy
         @task.destroy
-        flash[:notice] = "Artist deleted."
+        flash[:notice] = "Task deleted."
         redirect_to tasks_path
     end
 

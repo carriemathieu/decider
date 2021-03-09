@@ -24,6 +24,7 @@ class SuggestionsController < ApplicationController
     def create
         @suggestion = current_user.suggestions.build(suggestion_params)
         if @suggestion.save
+            flash.notice = "Successfully created new suggestion."
             redirect_to suggestions_path
         else
             render :new
@@ -38,6 +39,7 @@ class SuggestionsController < ApplicationController
 
     def update
         if @suggestion.update(suggestion_params)
+            flash.notice = "Successfully updated new suggestion."
             redirect_to suggestion_path(@suggestion)
         else
             render :edit
@@ -53,7 +55,7 @@ class SuggestionsController < ApplicationController
     def set_suggestion
         @suggestion = Suggestion.find_by(id: params[:id])
         if !@suggestion 
-            flash[:message] = "Task was not found."
+            flash.alert = "Task was not found."
         end
     end
 
