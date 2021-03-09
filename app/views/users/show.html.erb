@@ -7,8 +7,10 @@
     No tasks yet. Create a new task <%= link_to "here", new_task_path %>
 <% else %>
     Your tasks: 
+    <br>
     <% @user.tasks.each do |task| %>
         <%= task.content %>
     <% end %>
+    <br>
 <% end %>
 

@@ -2,7 +2,12 @@ class TasksController < ApplicationController
     before_action :redirect_if_not_logged_in
     
     def index
-        @tasks = Task.all
+        if params[:user_id] # checks if post ID & id exists are true
+            user = User.find_by(id: params[:user_id])
+            @tasks = user.tasks
+        else
+            @tasks = Task.all
+        end
     end
     
     def new
