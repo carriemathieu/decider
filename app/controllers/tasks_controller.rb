@@ -58,11 +58,14 @@ class TasksController < ApplicationController
     def set_task
         @task = Task.find_by(id: params[:id])
         if !@task 
-            flash[:message] = "Task was not found."
+            flash[:alert] = "Task was not found."
         end
     end
 
     def redirect_if_not_task_author
-        redirect_to task_path if @task.user != current_user
+        if @task.user != current_user
+            flash[:alert] = "You are not authorized to make changes to this task."
+            redirect_to task_path
+        end
     end
 end

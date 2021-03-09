@@ -66,7 +66,10 @@ class SuggestionsController < ApplicationController
     end
 
     def redirect_if_not_suggestion_author
-        redirect_to suggestions_path if @suggestion.user != current_user
+        if @suggestion.user != current_user
+            flash[:alert] = "You are not authorized to make changes to this suggestion."
+            redirect_to task_path
+        end
     end
 
     # add all suggestions to an array
