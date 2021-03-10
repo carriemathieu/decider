@@ -1,12 +1,17 @@
-<h1> decider! </h1>
+<div class="container">
+    <div id="decider_heading"> decider </div>
 
-Don't have an account?
-<%= link_to "Sign Up!", signup_path %>
-<br>
-Need to log in?
-<%= link_to "Sign in!", signin_path %>
-<br>
-
-<%= form_tag('/auth/google_oauth2', method: 'post') do %>
-    <button type='submit'>Login with Google </button>
-<% end %>
+    <div id="sessions_buttons">
+        <%= form_tag('signup', method: 'get') do %>
+            <button type='submit'>Sign Up</button>
+        <% end %>
+        <br>
+        <%= form_tag('signin', method: 'get') do %>
+            <button type='submit'>Sign In </button>
+        <% end %>
+        <br>
+        <%= form_tag('/auth/google_oauth2', method: 'post') do %>
+            <button type='submit'>Login with Google </button>
+        <% end %>
+    </div>
+<div>

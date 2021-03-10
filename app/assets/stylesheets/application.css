@@ -14,3 +14,54 @@
  *= require_self
  */
 
+ body {
+     background-color: lightskyblue;
+ }
+
+ .field_with_errors {
+    padding: 2px;
+    background-color: red;
+    display: table;
+  }
+
+  #navbar {
+    
+  }
+
+  .container {
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100vh;
+    display: flex;
+  }
+
+  .container #decider_heading {
+      display: flex;
+      font-size: 7em;
+      font-family: 'Spirax', cursive;
+      position: relative; 
+      justify-content: center;
+      top: 50%;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%);
+  }
+
+  .container #sessions_buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  button[type=submit] {
+    background-color: rgb(100, 149, 237);
+    border: 0 none;
+    color: white;
+    font-family: 'Josefin Slab', serif;
+    font-size: 1.25em;
+    padding: .5em;
+    margin: .5em;
+  }
+
+
