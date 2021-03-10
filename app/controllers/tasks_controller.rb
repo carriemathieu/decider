@@ -43,6 +43,9 @@ class TasksController < ApplicationController
     end
 
     def destroy
+        @task.suggestions.each do |s|
+            s.destroy
+        end
         @task.destroy
         flash[:notice] = "Task deleted."
         redirect_to tasks_path

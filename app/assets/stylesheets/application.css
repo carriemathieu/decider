@@ -98,7 +98,6 @@ input[type=submit] {
 }
 
 #main {
-    /*line-height: 400px;*/
     text-align:center; 
     vertical-align:middle;
 }
@@ -119,14 +118,22 @@ footer {
     text-align: center;
 }
 
-#list {
-    
-    display:inline-block;
-    float: left;
+.card {
+    margin: 0 auto; 
+    float: none; 
+    margin-bottom: 10px; 
 }
 
 .card-header {
     font-size: 1em;
     background-color:#87cefa54;
+}
+
+
+
+#user_hp_button {
+    display:inline-block;
+    font-size: .2em;
+    margin: 0em;
 }
 

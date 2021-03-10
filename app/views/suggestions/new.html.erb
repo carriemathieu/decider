@@ -1,18 +1,20 @@
-<% if @suggestion.task %>
-<h1> New suggestion for "<%= @suggestion.task.content %>" </h1>
-<% else %>
-<h1> Add suggestion </h1>
-<% end %>
+<div id="main">
+    <% if @suggestion.task %>
+        <h1> New suggestion for "<%= @suggestion.task.content %>" </h1>
+    <% else %>
+        <h1> Add suggestion </h1>
+    <% end %>
 
-<%= render partial: "layouts/errors", locals: {object: @suggestion} %>
+    <%= render partial: "layouts/errors", locals: {object: @suggestion} %>
 
-<%= form_for([@suggestion.task, @suggestion]) do |f| %>
-    <%= f.label :task, "Task:" %>
-    <%= f.collection_select :task_id, Task.all, :id, :content %>
+    <%= form_for([@suggestion.task, @suggestion]) do |f| %>
+        <%= f.label :task, "Task:" %>
+        <%= f.collection_select :task_id, Task.all, :id, :content %>
 
-    <%= f.label :content %>
-    <%= f.text_area :content %>
+        <%= f.label :content %>
+        <%= f.text_area :content %>
 
-    <%= f.submit %>
+        <%= f.submit %>
 
-<% end %>
+    <% end %>
+</div>

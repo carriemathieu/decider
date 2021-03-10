@@ -1,6 +1,10 @@
-<h1> Edit Task </h1>
+<div id="main">
+    <h3> Edit Task </h3>
 
-<%= render partial: "layouts/errors", locals: {object: @task} %>
+    <%= render partial: "layouts/errors", locals: {object: @task} %>
 
-<%= render partial: "tasks" %>
+    <div id="frm">
+        <%= render partial: "tasks" %>
+    </div>
+</div>
 

@@ -32,6 +32,8 @@ class SuggestionsController < ApplicationController
     end
 
     def show
+        binding.pry
+        @task = Task.find_by(id: params[:id])
 
     end
 
