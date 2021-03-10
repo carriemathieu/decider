@@ -15,7 +15,7 @@
  */
 
 body {
-    background-color: lightskyblue;
+    background-color: #87cefa;
     font-family: 'Cinzel', serif;
 }
 
@@ -125,4 +125,8 @@ footer {
     float: left;
 }
 
+.card-header {
+    font-size: 1em;
+    background-color:#87cefa54;
+}
 

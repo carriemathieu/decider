@@ -1,26 +1,32 @@
 <h1> <%= @task.content %> </h1>
-<h3> Created by: <%= @task.user.firstname %> </h3>
+<h4> Created by: <%= @task.user.firstname %> </h4>
 <br>
-<strong> Suggestions: </strong>
+<hr>
 <br>
-
 <% if @task.suggestions.empty? %>
     <%= "No suggestions yet for '#{@task.content}'." %>
 <% else %>
     <% @task.suggestions.each do |suggestion| %>
-        <%= suggestion.user.firstname %> suggests 
-        "<%= suggestion.content %>"
+        <div class="card text-center" style="width: 25%; height: 50%;">
+            <h5 class="card-header">Suggestion</h5>
+                <div class="card-body">
+                    <h5 class="card-title"><%= suggestion.content %></h5>
+                    <p class="card-text">Suggested by <%= suggestion.user.firstname %></p>
+                    <% if suggestion.user == current_user %>
+                        <%= link_to "edit", edit_suggestion_path(suggestion) %>
+                        <%= link_to "delete", suggestion_path(suggestion), method: :delete %>
+                    <% end %>
+                </div>
+            </div>
+    
         
-        <% if suggestion.user == current_user %>
-            <%= link_to "edit", edit_suggestion_path(suggestion) %>
-            <%= link_to "delete", suggestion_path(suggestion), method: :delete %>
-        <% end %>
         <br>
     <% end %>
 <% end %> 
 
 <br>
-<br>
-<%= link_to "Randomize suggestions", task_suggestions_path(@task) %> (if owner of post)
-<br>
 <%= link_to "Add a new suggestion", new_task_suggestion_path(@task) %> 
+<br>
+<% if @task.user == current_user %>
+    <%= link_to "Randomize suggestions", task_suggestions_path(@task) %> 
+<% end %>
