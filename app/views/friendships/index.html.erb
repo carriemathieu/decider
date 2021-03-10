@@ -4,7 +4,7 @@
 <ul>
   <% for friendship in current_user.friendships %>
     <li>
-      <%= friendship.friend.firstname %>
+      <%= link_to "#{friendship.friend.firstname}", user_path(friendship.friend.id) %>
       (<%= link_to "remove", friendship, :method => :delete %>)
     </li>
   <% end %>
