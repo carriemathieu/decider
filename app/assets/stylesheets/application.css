@@ -86,4 +86,14 @@ input[type=submit] {
     line-height: 14px; 
 }
 
+footer {
+    background-color:rgb(100, 149, 237, .3);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
 
