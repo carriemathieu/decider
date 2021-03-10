@@ -19,8 +19,6 @@
                         <% end %>
                     </div>
                 </div>
-        
-            
             <br>
         <% end %>
     <% end %> 
@@ -29,6 +27,6 @@
     <%= link_to "Add a new suggestion", new_task_suggestion_path(@task) %> 
     <br>
     <% if @task.user == current_user %>
-        <%= link_to "Randomize suggestions", suggestion_path(:task => @task) %> 
+        <%= link_to "Randomize suggestions", task_winner_path(@task) %> 
     <% end %>
 </div>

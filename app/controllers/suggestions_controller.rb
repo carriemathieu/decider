@@ -1,6 +1,6 @@
 class SuggestionsController < ApplicationController
     before_action :redirect_if_not_logged_in
-    before_action :set_suggestion, only: [:show, :edit, :update, :destroy]
+    before_action :set_suggestion, only: [:edit, :update, :destroy]
     before_action :redirect_if_not_suggestion_author, only: [:edit, :update, :destroy]
 
     def index
@@ -32,9 +32,8 @@ class SuggestionsController < ApplicationController
     end
 
     def show
-        binding.pry
-        @task = Task.find_by(id: params[:id])
-
+        @task = Task.find_by_id(params[:task_id])
+        @suggestion = @task.suggestions.shuffle.first
     end
 
     def edit 

@@ -24,10 +24,13 @@ Rails.application.routes.draw do
   resources :friendships
   
   resources :suggestions
-  resources :tasks do
+  resources :tasks do # custom route to handle task :id
     resources :suggestions, only: [:new, :create, :index, :edit]
+    get '/suggestions/random', to: 'suggestions#show', as: 'winner'
   end
   resources :users do
     resources :tasks, only: [:new, :create, :index, :edit]
   end
 end
+
+# random route that renders show template, i.e task/:id/suggestions/random, -> create custom route to handle task :id

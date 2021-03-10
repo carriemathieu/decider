@@ -1,1 +1,8 @@
-<%= @task.content %>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script><script src="https://www.wpromotions.eu/confetti.min.js"></script>
+<script>confetti.start()</script>
+<script>setTimeout(function(){confetti.stop();},3000)</script>
+
+<div id=main>
+    <h1> And the winner for <%= @task.content %> is... </h1>
+    <p> <h3> <%=@suggestion.content %> </h3> </p>
+</div>
