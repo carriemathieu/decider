@@ -12,22 +12,26 @@
   </head>
 
   <body>
+
+    <% flash.each do |type, msg| %>
+      <div class="alert alert-info">
+        <%= msg %>
+      </div>
+    <% end %>
     
     <div id="navbar">
         <% if logged_in? %>
-        <%= link_to "Home Page", user_path(current_user) %> |
-        <%= link_to "Add a task", new_task_path %> |
-        <%= link_to "All tasks", tasks_path %> |
-        <%= link_to "Your Friends", friendships_path %> |
-        <%= link_to "Logout", logout_path, method: "delete" %> 
+        <ul>
+          <li><%= link_to "Home Page", user_path(current_user) %> </li>
+          <li><%= link_to "Add a task", new_task_path %> </li>
+          <li><%= link_to "All tasks", tasks_path %> </li>
+          <li><%= link_to "Your Friends", friendships_path %> </li>
+          <li><%= link_to "Logout", logout_path, method: "delete" %> </li>
+        </ul>
       <% end %>
     </div>
 
-    <% flash.each do |type, msg| %>
-        <div class="alert alert-info">
-          <%= msg %>
-        </div>
-    <% end %>
+    
 
     <%= yield %>
   </body>

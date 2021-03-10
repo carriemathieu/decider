@@ -7,7 +7,7 @@
 <%= render partial: "layouts/errors", locals: {object: @suggestion} %>
 
 <%= form_for([@suggestion.task, @suggestion]) do |f| %>
-    <%= f.label :task %>
+    <%= f.label :task, "Task:" %>
     <%= f.collection_select :task_id, Task.all, :id, :content %>
 
     <%= f.label :content %>

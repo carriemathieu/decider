@@ -1,6 +1,9 @@
-<h1> Create a new task </h1>
-
-<br>
-<%= render partial: "layouts/errors", locals: {object: @task} %>
-
-<%= render partial: "tasks" %>
+<div id="main">
+    
+    <h3> Create a new task </h3>
+    <br>
+    <%= render partial: "layouts/errors", locals: {object: @task} %>
+    <div id="frm">
+        <%= render partial: "tasks" %>
+    </div>
+</div>
