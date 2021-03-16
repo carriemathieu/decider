@@ -1,6 +1,6 @@
 <h1> Your Friends </h1>
 
-<h2>Users you friended:</h2>
+<h2>Users you follow:</h2>
 <ul>
   <% for friendship in current_user.friendships %>
     <li>
@@ -12,7 +12,7 @@
 
 <p><%= link_to "Find Friends", users_path %></p>
 
-<h2>Users who friended you:</h2>
+<h2>Users who follow you:</h2>
 <ul>
   <% for user in current_user.inverse_friends %>
     <li><%=h user.firstname %></li>
