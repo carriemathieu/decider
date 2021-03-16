@@ -12,7 +12,7 @@
                 <h5 class="card-header">Suggestion</h5>
                     <div class="card-body">
                         <h5 class="card-title"><%= suggestion.content %></h5>
-                        <p class="card-text">Suggested by <%= suggestion.user.firstname %></p>
+                        <p class="card-text">Suggested by: <strong> <%= suggestion.user.firstname %> </strong></p>
                         <% if suggestion.user == current_user %>
                             <%= link_to "edit", edit_suggestion_path(suggestion) %>
                             <%= link_to "delete", suggestion_path(suggestion), method: :delete %>
@@ -26,6 +26,8 @@
     <br>
     <% if current_user.friends.exists?(@task.user.id) %>
         <%= link_to "Add a new suggestion", new_task_suggestion_path(@task) %> 
+    <% else %>
+        You must follow this user to add a suggestion.
     <% end %>
     <br>
     <% if @task.user == current_user %>
