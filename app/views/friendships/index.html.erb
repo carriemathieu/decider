@@ -3,10 +3,10 @@
 <h2>Users you follow:</h2>
 <ul>
   <% for friendship in current_user.friendships %>
-    <li>
-      <%= link_to "#{friendship.friend.firstname}", user_path(friendship.friend.id) %>
-      (<%= link_to "remove", friendship, :method => :delete %>)
-    </li>
+      <li>
+        <%= link_to "#{friendship.friend.firstname}", user_path(friendship.friend.id) %>
+        (<%= link_to "remove", friendship, :method => :delete %>)
+      </li>
   <% end %>
 </ul>
 

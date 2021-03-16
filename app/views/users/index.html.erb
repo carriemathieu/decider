@@ -1,9 +1,11 @@
 User List
 
 <% for user in @users %>
+  <% if user.id != current_user.id && !current_user.friends.exists?(user.id) %>
     <p>
       <%= user.firstname %>
       <%= user.lastname %>
       <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
     </p>
+  <% end %>
 <% end %>
