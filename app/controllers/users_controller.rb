@@ -2,6 +2,9 @@ class UsersController < ApplicationController
 
     def index
         @users = User.alpha
+        if params[:q] && !params[:q].empty? # looks at URL for query
+            @users = @users.search(params[:q].downcase) # calls on search method in user model & makes search case insensitive
+        end
     end
     # create an account page
     def new

@@ -1,17 +1,22 @@
 <h1>All tasks</h1>
 <hr>
-
-<table>
-    <tr>
-        <th> Task: </th>
-        <th> Created by: </th>
-        <th> Link to task: </th>
-    </tr>
-    <% @tasks.each do |task| %>
+<% if @tasks.empty? %>
+    <%= "#{@user.firstname} has not created any tasks yet." %>
+<% else %>
+    <table>
         <tr>
-            <td> <%= task.content %> </td>
-            <td> <%= task.user.firstname %> </td>
-            <td> <%= link_to "See This Task", task_path(task)%> </td>
+            <th> Task: </th>
+            <th> Created by: </th>
+            <th> Link to task: </th>
         </tr>
-    <% end %>
-</table>
+    
+        <% @tasks.each do |task| %>
+            <tr>
+                <td> <%= task.content %> </td>
+                <td> <%= task.user.firstname %> </td>
+                <td> <%= link_to "See This Task", task_path(task)%> </td>
+            </tr>
+        <% end %>
+    </table>
+<% end %>
+

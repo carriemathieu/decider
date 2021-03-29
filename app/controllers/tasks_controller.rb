@@ -5,11 +5,12 @@ class TasksController < ApplicationController
     
     def index
         if params[:user_id] # checks if post ID & id exists are true
-            user = User.find_by(id: params[:user_id])
-            @tasks = user.tasks
+            @user = User.find_by(id: params[:user_id])
+            @tasks = @user.tasks
         else
             @tasks = Task.all
         end
+        
     end
     
     def new

@@ -1,5 +1,11 @@
 User List
 
+<%= form_tag("/users", method: "get") do %>
+  <%= label_tag(:q, "Search by First Name:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <% for user in @users %>
   <% if user.id != current_user.id && !current_user.friends.exists?(user.id) %>
     <p>
