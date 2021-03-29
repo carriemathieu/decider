@@ -24,7 +24,7 @@
     <% end %> 
 
     <br>
-    <% if current_user.friends.exists?(@task.user.id) %>
+    <% if current_user || current_user.friends.exists?(@task.user.id) %>
         <%= link_to "Add a new suggestion", new_task_suggestion_path(@task) %> 
     <% else %>
         You must follow this user to add a suggestion.
